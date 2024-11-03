@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lobster&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lobster&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lobster&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lobster&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Rampart+One&family=Ribeye+Marrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lobster&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&family=Pacifico&family=Rampart+One&family=Ribeye+Marrow&display=swap');
+
+body{
+    width: 380px;
+    /* height: 640px; */
+}
+
+*{
+    padding: 5px;
+    margin: 5px;
+    background-color: #111111;
+}
+
+/* меню */
+
+.nav a{
+    text-decoration: none;
+    font-size: 32px;
+    color: white;
+    display: block;
+    padding: 15px;
+}
+
+.nav a:hover{
+    color: blue;
+    font-size: 40px;
+}
+
+/* Оформление панели */
+#side-checkbox {
+    display: none;
+}
+.side-panel {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: -360px;
+    background: #474747;
+    transition: all 0.5s;   
+    width: 320px;
+    height: 100vh;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    color: #ffffff;
+    padding: 40px 20px;
+}
+.side-title {
+    font-size: 35px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #008cff;
+}
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+    text-align: right; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+}
+.side-button-1 {
+    display: inline-block;
+}
+.side-button-1 .side-b {
+    margin: 10px;
+    text-decoration: none;
+    position: relative;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 12px 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase; 
+    font-family: 'Roboto', Тahoma, sans-serif;
+    background: #337AB7;
+    cursor: pointer; 
+    border: 2px solid #BFE2FF;
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+    color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+.side-button-1 .side-open:after,
+.side-button-1 .side-open:before {
+    background: green;
+}
+.side-button-1 .side-close:after,
+.side-button-1 .side-close:before {
+    background: red;
+}
+.side-button-1 .side-b:before {
+    top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+    width: 100%;
+    left: 0;
+}
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+    display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+    display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+    display: block;
+}
+#side-checkbox:checked + .side-panel {
+    left: 0;
+}
+/* Оформление кнопки на панеле */
+.side-button-2 {
+    font-size: 30px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: #BFE2FF;    
+    transition: all 280ms ease-in-out;    
+}
+.side-button-2:hover {
+    transform: rotate(45deg) scale(1.1);    
+    color: #FFF;
+}
+
+/*Конец меню*/
+
+/* .top-menu{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-logo img{
+    width: 50px;
+    height: 50px;
+    margin: 0px 10px 0px 10px;
+}
+
+.top-menu a:hover{
+    color: red;
+}
+
+.top-menu a{
+    padding: 0px;
+    margin: 10px 20px 10px 20px;
+    /* width: 20%; *
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    font-size: 32px;
+    text-align: center;
+    color: #e2e2e2;
+} */
+
+/* о нас */
+.about-us{
+    width: 90%;
+    color: white;
+    border-style: double;
+}
+
+.about-us h1 img{
+    width: 95%;
+    height: auto;
+}
+
+.about-us h1{
+    font-size: 230%;
+    text-align: center;
+    font-family: "Ribeye Marrow", serif;
+}
+
+.banner img{
+    width: 40%;
+    display: block;
+    margin: 10px auto 20px;
+}
+
+.about-us p{
+    font-size: 16px;
+    justify-content: space-between;
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+}
+
+.about-us a{
+    text-decoration: none;
+    color: burlywood;
+}
+
+/* команда */
+.Team{
+    width: 90%;
+    border-color: white;
+    border-style: double;
+}
+
+.Team h1{
+    color: white;
+    font-size: 150%;
+    text-align: center;
+    font-family: "Ribeye Marrow", serif;
+}
+
+.team{
+    /* display: flex; */
+    color: white;
+    justify-content: center;
+}
+
+.team p{
+    font-size: 100%;
+    font-family: "Oswald", sans-serif;
+}
+
+.user1, .user2, .user3{
+    width: 90%;
+    text-align: center;
+    border-style: inset;
+}
+
+.user1 img, .user2 img, .user3 img{
+    width: 80%;
+}
+
+.user1 h1{
+    border-style: double;
+}
+
+.user2 h1{
+    border-style: double;
+}
+
+.user3 h1{
+    border-style: double;
+}
+
+button{
+    width: 50%;
+    background-color: white;
+}
+
+button a{
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Rubik Mono One", monospace;
+    font-style: bold;
+}
+
+/* услуги */
+.service{
+    width: 90%;
+    color: white;
+    font-family: "Oswald", sans-serif;
+    border-style: double;
+}
+
+.srv-img h1{
+    color: white;
+    font-size: 230%;
+    text-align: center;
+    font-family: "Ribeye Marrow", serif;
+}
+
+ /* .first-srv{
+    /* display: flex; *
+    justify-content: space-between;
+}
+
+.two-srv{
+    /* display: flex; *
+    justify-content: space-between;
+} */
+
+.srv1, .srv2, .srv3, .srv4, .srv5, .srv6{
+    width: 90%;
+    text-align: center;
+    border-style: inset;
+}
+
+.srv1 h1, .srv2 h1, .srv3 h1, .srv4 h1, .srv5 h1, .srv6 h1{
+    font-size: 150%;
+}
+
+.srv1 img, .srv2 img, .srv3 img, .srv4 img, .srv5 img, .srv6 img{
+    width: 80%;
+}
+
+/*Аренда*/
+.arenda{
+    width: 90%;  
+    color: white;
+    font-family: "Oswald", sans-serif;
+    border-style: double; 
+}
+
+.arnd-img h1{
+    color: white;
+    font-size: 230%;
+    text-align: center;
+    font-family: "Ribeye Marrow", serif;
+}
+
+/* .first-arnd{
+    /* width: 90%; *
+    /* display: flex; *
+    justify-content: center; 
+}*/
+
+.arnd1 h1, .arnd2 h1, .arnd3 h1, .arnd4 h1, .arnd5 h1, .arnd6 h1{
+    font-size: 150%;
+}
+
+
+
+.two-arnd{
+    /* width: 90%; */
+    /* display: flex; */
+    justify-content: center;
+}
+
+.arnd1, .arnd2, .arnd3, .arnd4, .arnd5, .arnd6{
+    width: 90%;
+    text-align: center;
+    border-style: inset;
+}
+
+.arnd1 img, .arnd2 img, .arnd3 img, .arnd4 img, .arnd5 img, .arnd6 img{
+    width: 80%;
+}
+
+/* кнопка вверх*/
+
+.btn-up {
+    /* фиксированное позиционирование */
+    position: fixed;
+    /* цвет фона */
+    background-color: #673ab7;
+    /* расстояние от правого края окна браузера */
+    right: 950px;
+    /* расстояние от нижнего края окна браузера */
+    bottom: 0;
+    /* скругление верхнего левого угла */
+    border-top-left-radius: 8px;
+    /* скругление верхнего правого угла */
+    border-top-right-radius: 8px;
+    /* вид курсора */
+    cursor: pointer;
+    /* отображение элемента как flex */
+    display: flex;
+    /* выравниваем элементы внутри элемента по центру вдоль поперечной оси */
+    align-items: center;
+    /* выравниваем элементы внутри элемента по центру вдоль главной оси */
+    justify-content: center;
+    /* ширина элемента */
+    width: 60px;
+    /* высота элемента */
+    height: 50px;
+  }
+  
+  .btn-up::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3E%3C/svg%3E");
+  }
+  
+  .btn-up_hide {
+    display: none;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .btn-up:hover {
+      background-color: #512da8; /* цвет заднего фона при наведении */
+    }
+  }
+
+  /* контакты */
+footer{
+    color: white;
+    font-family: "Oswald", sans-serif;
+    border-style: double;
+    width: 90%;
+}
+
+.number{
+    justify-content: space-between;
+}
+
+.insta{
+    display: flex;
+}
+
+.mail{
+    display: flex;
+}
+
+.whatsapp{
+    display: flex;
+}
+
+.mail img, .insta img, .whatsapp img{
+    width: 30px;
+    height: 30px;
+}
+
+.insta a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.whatsapp a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.mail a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.foot{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.footer-img h1{
+    color: white;
+    font-size: 230%;
+    text-align: center;
+    font-family: "Ribeye Marrow", serif;
+}
